@@ -1,0 +1,40 @@
+/* colors
+#c5c3c3
+#001f3f
+#D3D3D3
+#155EBC
+
+/* font */
+/* arial
+comfortaa
+calibri */ 
+
+body{
+    background-color: #001F3F;
+    color:#c5c3c3 ;
+}
+
+a{
+    text-decoration: none;
+}
+
+.main-link{
+    font-family: "Comfortaa",serif;
+    font-weight: bold;
+    color:#c5c3c3 ;
+}
+
+.nav-link{
+    color:#c5c3c3 ;
+}
+
+
+.carousel-caption{
+background-color: #001F3F;
+opacity: 65%;
+color: #C5C3C3;
+}
+
+.btn-primary{
+background-color: #155EBC;
+}
