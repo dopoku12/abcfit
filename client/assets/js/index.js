@@ -1,12 +1,27 @@
 "strict"
 $(document).ready(function () {
-    let num=0
-    const cardTitle=$('.card-title').text()
-    const badge=$('.badge')
+  let num=1
 
-    $(".btn").on("click", function () {
-        num++
-        console.log(num)
-      console.log(badge.text(num))
-    });
+    const badge=$('.badge')
+    
+    $(".card-body").each(function() {
+       
+      let count=0
+      const $btn=$(this).find('.btn')
+      const $cardTitle=$(this).find('.card-title')
+
+      $btn.on("click", function () {
+            count++
+            console.log(count)
+            localStorage.setItem('cartCount',`${num++}`)
+            console.log($cardTitle.text());
+
+            localStorage.setItem($cardTitle.text(),$cardTitle.text())
+            
+
+            badge.text(localStorage.cartCount)
+        });
+      
+
+      });
 });
