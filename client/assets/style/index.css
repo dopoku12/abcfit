@@ -8,8 +8,20 @@
 /* arial
 comfortaa
 calibri */ 
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
 
 body{
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
     background-color: #001F3F;
     color:#c5c3c3 ;
 }
@@ -19,15 +31,16 @@ a{
 }
 
 .main-link{
-    font-family: "Comfortaa",serif;
     font-weight: bold;
     color:#c5c3c3 ;
 }
 
 .nav-link{
-    color:#c5c3c3 ;
-}
+font-family: "Comfortaa",serif; 
+font-size: 15px;
 
+color:#c5c3c3 ;
+}
 
 .carousel-caption{
 background-color: #001F3F;
@@ -35,6 +48,18 @@ opacity: 65%;
 color: #C5C3C3;
 }
 
+
+.card-text{
+font-family: Calibri, 'Trebuchet MS', sans-serif;
+font-weight: bold;
+font-size: 16px;
+}
+
 .btn-primary{
 background-color: #155EBC;
+}
+
+.modal-content{
+    background-color:#001f3f;
+    color: #C5C3C3;
 }

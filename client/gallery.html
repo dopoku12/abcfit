@@ -12,9 +12,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <link href="assets/style/index.css" rel="stylesheet">
     <style>
-        .card-img-top { /* Style for the image within the card */
-          height: 200px; /* Set a fixed height for the images */
-          object-fit: cover; /* Cover the entire area */
+        .card-img-top { 
+          height: 200px; 
+          object-fit: cover; 
         }
     </style>
 </head>
@@ -23,30 +23,31 @@
     <div class="container" id="page3">
         <header class="text-center my-4">
         </header>
-        
+
+        <!-- modal trigger -->
         <div class="text-end d-block">
              <button class="btn btn-primary"
              data-bs-toggle="modal" 
-             data-bs-target="#exampleModal"
+             data-bs-target="#cart-Modal"
              >
                  View Cart
                  <i class="fas fa-shopping-cart"></i>
-                 <span class=" badge bg-danger">
+                 <!-- <span class=" badge bg-danger">
                      
-                </span>
+                </span> -->
             </button>
         </div>
 
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- modal window -->
+        <div class="modal fade" id="cart-Modal" tabindex="-1" aria-labelledby="cart-Modal-Label" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <h1 class="modal-title fs-5" id="cart-Modal-Label">Cart</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  ...
+                 
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -77,50 +78,60 @@
                     <img class="card-img-top" src="assets/img/Client2_IndividualYoga.png" alt="Individual Yoga">
                     <div class="card-body">
                         <h5 class="card-title">Individual Yoga</h5>
+                        <p class="card-text">$175</p>
                         <button id="Individual-Yoga" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="assets/img/Client2_GroupPilates.png" alt="Group Pilates">
-                    <div class="card-body">
-                        <h5 class="card-title">Group Pilates</h5>
-                        <button id="" class="btn btn-primary">
-                            <i class="fas fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="assets/img/Client2_IndividualPilates.png" alt="Individual Pilates">
-                    <div class="card-body">
-                        <h5 class="card-title">Individual Pilates</h5>
-                        <button id="" class="btn btn-primary">
-                            <i class="fas fa-shopping-cart"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
+
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card">
                     <img class="card-img-top" src="assets/img/Client2_GroupYoga.png" alt="Group Yoga">
                     <div class="card-body">
                         <h5 class="card-title">Group Yoga</h5>
+                        <p class="card-text">$75</p>
                         <button id="" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
                     </div>
                 </div>
             </div>
+
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/Client2_IndividualPilates.png" alt="Individual Pilates">
+                    <div class="card-body">
+                        <h5 class="card-title">Individual Pilates</h5>
+                        <p class="card-text">$175</p>
+                        <button id="" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/Client2_GroupPilates.png" alt="Group Pilates">
+                    <div class="card-body">
+                        <h5 class="card-title">Group Pilates</h5>
+                        <p class="card-text">$75</p>
+                        <button id="" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card">
                     <img class="card-img-top" src="assets/img/Client2_IndividualKickboxing.png" alt="Individual Kickboxing">
                     <div class="card-body">
                         <h5 class="card-title text-nowrap">Individual Kickboxing</h5>
+                        <p class="card-text">$180</p>
                         <button id="" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
@@ -132,6 +143,7 @@
                     <img class="card-img-top" src="assets/img/Client2_GroupKickboxing.png" alt="Group Kickboxing">
                     <div class="card-body">
                         <h5 class="card-title">Group Kickboxing</h5>
+                        <p class="card-text">$80</p>
                         <button id="" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
@@ -145,6 +157,7 @@
                     <img class="card-img-top" src="assets/img/Client2_TeeShirt.png" alt="T-Shirt">
                     <div class="card-body">
                         <h5 class="card-title">T-Shirt</h5>
+                        <p class="card-text">$15</p>
                         <button id="" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
@@ -156,6 +169,7 @@
                     <img class="card-img-top" src="assets/img/Client2_WaterBottle.png" alt="Water Bottle">
                     <div class="card-body">
                         <h5 class="card-title">Water Bottle</h5>
+                        <p class="card-text">$5</p>
                         <button id="" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
@@ -167,6 +181,7 @@
                     <img class="card-img-top" src="assets/img/Client2_YogaMat.png" alt="Yoga Mat">
                     <div class="card-body">
                         <h5 class="card-title">Yoga Mat</h5>
+                        <p class="card-text">$35</p>
                         <button id="" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
@@ -185,10 +200,10 @@
                 </div>
                 <div class="row g-3">
                     
-                    <div class="row-cols-2">
-                        <label for="FormControlInput1" >subscriber-to-newsletter</label>
-                        <input type="email" class="form-control-md" id="FormControlInput1" placeholder="name@example.com">
-                    </div>
+                    <from id="email-form" class="row-cols-2">
+                    <label for="FormControlInput1" >subscriber-to-newsletter</label>
+                    <input type="email" class="form-control-md" id="FormControlInput1" placeholder="name@example.com">
+                </from>
     
                     <nav class="row  justify-content-center align-items-center">
                         <div class="m-3 col-2">
