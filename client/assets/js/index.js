@@ -4,7 +4,7 @@ $(document).ready(function () {
       url: endPoint,
       type: method,
       data: storageData,
-      dataType: "dataType", // Corrected: dataType should be a string
+      dataType: "dataType",
       success: function (response) {
         console.log(response);
       },
@@ -171,6 +171,7 @@ $(document).ready(function () {
     $cartCountSpan.remove();
     $modelBody.empty();
     cartCount = 0;
+    alert("Your cart has been cleared.");
   });
 
   $('#process').click(function (e) {
@@ -179,6 +180,7 @@ $(document).ready(function () {
     $cartCountSpan.remove();
     $modelBody.empty();
     cartCount = 0;
+    alert("Thank you for your order!");
   });
 
   $("#contact-form").submit(function (e) {
@@ -188,15 +190,17 @@ $(document).ready(function () {
     localStorage.setItem('contact-email', $contactEmail.val());
     localStorage.setItem('msg', $contactMsg.val());
     $(this).trigger("reset");
+    alert("Your message has been sent!");
   });
 
   $('#email-form').keydown(function (e) {
     const $value = $('#FormControlInput1').val();
     if (e.key === "Enter") {
       localStorage.setItem('email', $value);
+      alert("Thank you for subscribing with " + $value + "!");
+      $('#FormControlInput1').val("");
     }
   });
 
   updateCartModal($modelBody); // Call on page load
-
 });
