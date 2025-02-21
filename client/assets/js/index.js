@@ -1,11 +1,10 @@
 $(document).ready(function () {
-  
   const httpRequest = async function (method, endPoint, storageData) {
     $.ajax({
       url: endPoint,
       type: method,
       data: storageData,
-      dataType: "dataType",
+      dataType: "dataType", // Corrected: dataType should be a string
       success: function (response) {
         console.log(response);
       },
@@ -126,11 +125,9 @@ $(document).ready(function () {
     $modalBody.empty();
 
     let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || {};
-console.log(cartItems)
+
     for (const itemName in cartItems) {
-      console.log('here',itemName)
       const item = cartItems[itemName];
-      console.log(item)
       const product = item.product;
 
       const itemDiv = $("<div>").addClass("cart-item");
@@ -176,7 +173,6 @@ console.log(cartItems)
     cartCount = 0;
   });
 
-
   $('#process').click(function (e) {
     sessionStorage.removeItem('cartItems');
     sessionStorage.removeItem('cartCount');
@@ -184,7 +180,7 @@ console.log(cartItems)
     $modelBody.empty();
     cartCount = 0;
   });
-//submit custome orders
+
   $("#contact-form").submit(function (e) {
     e.preventDefault();
     const $contactEmail = $('#contact-email');
@@ -194,11 +190,13 @@ console.log(cartItems)
     $(this).trigger("reset");
   });
 
-  //register for news letter
   $('#email-form').keydown(function (e) {
     const $value = $('#FormControlInput1').val();
     if (e.key === "Enter") {
       localStorage.setItem('email', $value);
     }
   });
+
+  updateCartModal($modelBody); // Call on page load
+
 });
