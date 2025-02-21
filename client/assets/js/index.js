@@ -25,66 +25,20 @@ $(document).ready(function () {
   }
 
   const products = [
-    {
-      title: "Individual Yoga",
-      price: 175,
-      img: "assets/img/Client2_IndividualYoga.png",
-      category: "SESSIONS"
-    },
-    {
-      title: "Group Yoga",
-      price: 75,
-      img: "assets/img/Client2_GroupYoga.png",
-      category: "SESSIONS"
-    },
-    {
-      title: "Individual Pilates",
-      price: 175,
-      img: "assets/img/Client2_IndividualPilates.png",
-      category: "SESSIONS"
-    },
-    {
-      title: "Group Pilates",
-      price: 75,
-      img: "assets/img/Client2_GroupPilates.png",
-      category: "SESSIONS"
-    },
-    {
-      title: "Individual Kickboxing",
-      price: 180,
-      img: "assets/img/Client2_IndividualKickboxing.png",
-      category: "SESSIONS"
-    },
-    {
-      title: "Group Kickboxing",
-      price: 80,
-      img: "assets/img/Client2_GroupKickboxing.png",
-      category: "SESSIONS"
-    },
-    {
-      title: "T-Shirt",
-      price: 15,
-      img: "assets/img/Client2_TeeShirt.png",
-      category: "ABC MERCHANDISE"
-    },
-    {
-      title: "Water Bottle",
-      price: 5,
-      img: "assets/img/Client2_WaterBottle.png",
-      category: "ABC MERCHANDISE"
-    },
-    {
-      title: "Yoga Mat",
-      price: 35,
-      img: "assets/img/Client2_YogaMat.png",
-      category: "ABC MERCHANDISE"
-    }
+    { title: "Individual Yoga", price: 175, img: "assets/img/Client2_IndividualYoga.png", category: "SESSIONS" },
+    { title: "Group Yoga", price: 75, img: "assets/img/Client2_GroupYoga.png", category: "SESSIONS" },
+    { title: "Individual Pilates", price: 175, img: "assets/img/Client2_IndividualPilates.png", category: "SESSIONS" },
+    { title: "Group Pilates", price: 75, img: "assets/img/Client2_GroupPilates.png", category: "SESSIONS" },
+    { title: "Individual Kickboxing", price: 180, img: "assets/img/Client2_IndividualKickboxing.png", category: "SESSIONS" },
+    { title: "Group Kickboxing", price: 80, img: "assets/img/Client2_GroupKickboxing.png", category: "SESSIONS" },
+    { title: "T-Shirt", price: 15, img: "assets/img/Client2_TeeShirt.png", category: "ABC MERCHANDISE" },
+    { title: "Water Bottle", price: 5, img: "assets/img/Client2_WaterBottle.png", category: "ABC MERCHANDISE" },
+    { title: "Yoga Mat", price: 35, img: "assets/img/Client2_YogaMat.png", category: "ABC MERCHANDISE" }
   ];
 
   products.forEach(function (prod) {
     const gallery = prod.category === "SESSIONS" ? "#sessions" : "#abc-merch";
     const $section = $(gallery);
-
     const $productDiv = $("<div>").addClass("col-12 col-sm-6 col-md-4");
     const $cardDiv = $("<div>").addClass("product card");
     const $img = $("<img>").addClass("card-img-top").attr("src", prod.img).attr("alt", prod.title);
@@ -92,7 +46,6 @@ $(document).ready(function () {
     const $title = $("<h5>").addClass("text-nowrap card-title").text(prod.title);
     const $price = $("<p>").addClass("card-text").text("$" + prod.price);
     const $button = $("<button>").addClass("btn btn-primary").html('<i class="fas fa-shopping-cart"></i> Add to Cart');
-
     $cardBodyDiv.append($title, $price, $button);
     $cardDiv.append($img, $cardBodyDiv);
     $productDiv.append($cardDiv);
@@ -105,31 +58,23 @@ $(document).ready(function () {
       $viewCart.append($cartCountSpan);
 
       let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || {};
-
       if (cartItems[prod.title]) {
         cartItems[prod.title].count++;
       } else {
-        cartItems[prod.title] = {
-          product: prod,
-          count: 1
-        };
+        cartItems[prod.title] = { product: prod, count: 1 };
       }
-
       sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
-
       updateCartModal($modelBody);
     });
   });
 
   function updateCartModal($modalBody) {
     $modalBody.empty();
-
     let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || {};
 
     for (const itemName in cartItems) {
       const item = cartItems[itemName];
       const product = item.product;
-
       const itemDiv = $("<div>").addClass("cart-item");
       const imgElm = $("<img>").attr("src", product.img).attr("alt", product.title).addClass("cart-item-image");
       const titleElm = $("<h2>").addClass("m-data-title fs-5").text(product.title);
@@ -166,39 +111,57 @@ $(document).ready(function () {
   }
 
   $('#clear').click(function (e) {
-    sessionStorage.removeItem('cartItems');
-    sessionStorage.removeItem('cartCount');
-    $cartCountSpan.remove();
-    $modelBody.empty();
-    cartCount = 0;
-    alert("Your cart has been cleared.");
+    let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || {};
+    if (Object.keys(cartItems).length === 0) {
+      alert("Your cart is empty. There are no items to clear.");
+    } else {
+      sessionStorage.removeItem('cartItems');
+      sessionStorage.removeItem('cartCount');
+      $cartCountSpan.remove();
+      $modelBody.empty();
+      cartCount = 0;
+      alert("Your cart has been cleared.");
+    }
   });
 
   $('#process').click(function (e) {
-    sessionStorage.removeItem('cartItems');
-    sessionStorage.removeItem('cartCount');
-    $cartCountSpan.remove();
-    $modelBody.empty();
-    cartCount = 0;
-    alert("Thank you for your order!");
+    let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || {};
+    if (Object.keys(cartItems).length === 0) {
+      alert("Your cart is empty. There are no items to process.");
+    } else {
+      sessionStorage.removeItem('cartItems');
+      sessionStorage.removeItem('cartCount');
+      $cartCountSpan.remove();
+      $modelBody.empty();
+      cartCount = 0;
+      alert("Thank you for your order!");
+    }
   });
 
   $("#contact-form").submit(function (e) {
     e.preventDefault();
     const $contactEmail = $('#contact-email');
     const $contactMsg = $('#contact-message');
-    localStorage.setItem('contact-email', $contactEmail.val());
-    localStorage.setItem('msg', $contactMsg.val());
-    $(this).trigger("reset");
-    alert("Your message has been sent!");
+    if ($contactEmail.val().trim() === "" || $contactMsg.val().trim() === "") {
+      alert("Please fill in all fields.");
+    } else {
+      localStorage.setItem('contact-email', $contactEmail.val());
+      localStorage.setItem('msg', $contactMsg.val());
+      $(this).trigger("reset");
+      alert("Your message has been sent!");
+    }
   });
 
   $('#email-form').keydown(function (e) {
     const $value = $('#FormControlInput1').val();
     if (e.key === "Enter") {
-      localStorage.setItem('email', $value);
-      alert("Thank you for subscribing " + $value + "!");
-      $('#FormControlInput1').val("");
+      if ($value.trim() === "") {
+        alert("Please enter an email address.");
+      } else {
+        localStorage.setItem('email', $value);
+        alert("Thank you for subscribing with " + $value + "!");
+        $('#FormControlInput1').val("");
+      }
     }
   });
 
