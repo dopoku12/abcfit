@@ -197,7 +197,7 @@ $(document).ready(function () {
     const $value = $('#FormControlInput1').val();
     if (e.key === "Enter") {
       localStorage.setItem('email', $value);
-      alert("Thank you for subscribing with " + $value + "!");
+      alert("Thank you for subscribing " + $value + "!");
       $('#FormControlInput1').val("");
     }
   });
